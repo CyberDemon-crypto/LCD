@@ -20,3 +20,5 @@ It also works on phones, but there you can only deal with text files and folders
 ```
 To change the Starting directory - change last line
 ```
+### License
+This project is under GPL-3.0 License - see the [LICENSE.md](LICENSE.md) for more details
