@@ -12,12 +12,11 @@ case "$sys" in
     conf='-y'
     ;;
 esac
-
 clear
 "$sys" update "$conf" && "$sys" upgrade "$conf"
-
-packages=('imagemagick' 'vlc' 'nano' 'qpdfview' 'libreoffice' 'file')
+packages=('imagemagick' 'vlc' 'nano' 'qpdfview' 'libreoffice' 'xarchiver' 'file')
 for package in ${packages[*]}
   do
     "$sys" install "$package" "$conf"
   done
+
