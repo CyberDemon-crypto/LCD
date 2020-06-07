@@ -1,8 +1,8 @@
 #!/usr/bin/bash
 # made by https://github.com/CyberDemon-crypto
 cd "$HOME" && mkdir cyberdemon
-cd cyberdemon && mkdir launcher
-cd launcher && mkdir Settings
+cd cyberdemon && mkdir LCD
+cd LCD && mkdir Settings
 function menu() {
   cur="$1"  # Current directory
   filename="$HOME/cyberdemon/LCD/Settings/folder.txt"
