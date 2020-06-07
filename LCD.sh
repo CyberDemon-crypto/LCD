@@ -34,7 +34,7 @@ function menu() {
       index=$((index+1))
     done < "$filename"
   file "$file" > "$HOME/cyberdemon/LCD/Settings/file.txt"
-  actions=('directory' 'image' 'Audio' 'MP4' 'WebM' 'Matroska' 'archive' 'PDF' 'Microsoft' 'OpenDocument' 'text' 'empty')   # File types
+  actions=('directory' 'image' 'Audio' 'MP4' 'WebM' 'Matroska' 'archive' 'compressed' 'PDF' 'Microsoft' 'OpenDocument' 'text' 'empty')   # File types
   for item in ${actions[*]}
     do
       if [ "$(grep -o "$item" "$HOME/cyberdemon/LCD/Settings/file.txt")" != '' ]
@@ -61,7 +61,7 @@ function menu() {
           nano "$file"
           menu "$cur"
           ;;
-        'archive')  # Archive
+        'archive'|'compressed')  # Archive
           xarchiver "$file"
           menu "$cur"
           ;;
