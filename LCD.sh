@@ -1,11 +1,8 @@
 #!/usr/bin/bash
 # made by https://github.com/CyberDemon-crypto
-cd "$HOME"
-mkdir -p cyberdemon
-cd cyberdemon
-mkdir -p LCD
-cd LCD
-mkdir -p Settings
+cd "$HOME" && mkdir cyberdemon
+cd cyberdemon && mkdir launcher
+cd launcher && mkdir Settings
 function menu() {
   cur="$1"  # Current directory
   filename="$HOME/cyberdemon/LCD/Settings/folder.txt"
@@ -21,16 +18,13 @@ function menu() {
       printf "\u001b[1000D[\u001b[35m%s$index\u001b[0m]\u001b[32m%s$line\u001b[0m"
       echo
     done < "$filename"
-
   printf '\u001b[1000D$ '
   read -r file
 
   if [ "$file" = 0 ]  # Move back
     then menu ".."
   fi
-
   index=1
-
   while read line
     do
       if [ "$file" = "$index" ]
@@ -39,9 +33,7 @@ function menu() {
       fi
       index=$((index+1))
     done < "$filename"
-
   file "$file" > "$HOME/cyberdemon/LCD/Settings/file.txt"
-
   actions=('directory' 'image' 'Audio' 'MP4' 'WebM' 'Matroska' 'archive' 'PDF' 'Microsoft' 'OpenDocument' 'text' 'empty')   # File types
   for item in ${actions[*]}
     do
@@ -49,7 +41,6 @@ function menu() {
         then action=$(grep -o "$item" "$HOME/cyberdemon/LCD/Settings/file.txt")
       fi
     done
-
       case $action in
         'directory')  # Folder
           menu "$file"
@@ -86,5 +77,5 @@ function menu() {
           menu "$cur"
       esac
 }
-
-menu "$HOME"    # Starts from $HOME directory, change it to one you prefer
+# Change it to change the home folder
+menu "$HOME"
