@@ -58,6 +58,16 @@ function menu() {
           menu "$cur"
           ;;
         'text'|'empty')  # Text
+          filename="$HOME/cyberdemon/LCD/Settings/app.txt"
+          grep "Exec=" "$file" > "$filename"
+          while read line
+              do
+                  if [ ${line::5} = "Exec=" ]
+                      then file="${line:5}"
+                      $file
+                      break
+                  fi
+              done < "$filename"
           nano "$file"
           menu "$cur"
           ;;
