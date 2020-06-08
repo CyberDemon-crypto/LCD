@@ -57,7 +57,7 @@ function menu() {
           vlc -q "$file"
           menu "$cur"
           ;;
-        'text'|'empty')  # Text
+        'text'|'empty')  # Text | App
           filename="$HOME/cyberdemon/LCD/Settings/app.txt"
           grep "Exec=" "$file" > "$filename"
           while read line
